@@ -1,19 +1,22 @@
-class KthLargest:
+class Solution:
 
-    def __init__(self, k: int, nums: List[int]):
-        self.k_max = k
-        self.minHeap = nums
-        heapq.heapify(self.minHeap)
-        # Remove (n-k) min elements to keep only the k largest items currently
-        while len(self.minHeap) > k:
-            heapq.heappop(self.minHeap)  # Remove top item (which is the smallest) of self.minHeap
+    def squartRoot(self,pointx,pointy):
+        from math import sqrt
+        return sqrt(pointx**2+pointy**2)
 
-    def add(self, val: int) -> int:
-        heapq.heappush(self.minHeap,val) # Push an item to self.minHeap and rearrange
-        if len(self.minHeap) > self.k_max:
-            heapq.heappop(self.minHeap) # Remove to maintain top k items
-        return self.minHeap[0]
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
 
+        dist = [[self.squartRoot(point[0],point[1]),point[0],point[1]] for point in points]
+
+        heapq.heapify(dist) # Heap is like sort of key function, it will sort by first element of a list
+        res = []
+        while k > 0:
+            distt,x,y = heapq.heappop(dist)
+            res.append([x,y])
+            k-=1
+
+        return res
+        
 
 # class Solution:
 #     def distance(self,x,y):
