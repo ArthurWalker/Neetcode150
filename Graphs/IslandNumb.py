@@ -5,16 +5,16 @@ class Solution:
         islands = 0
 
         def dfs(r, c):
-            if (r < 0 or c < 0 or r >= ROWS or  c >= COLS or grid[r][c] == "0"):
+            if (r < 0 or c < 0 or r >= ROWS or  c >= COLS or grid[r][c] == "0"): # If condition not met, skip
                 return
                 
-            grid[r][c] = "0"
+            grid[r][c] = "0"            # Replace 1 to 0 so we dont need to pass through again
             for dr, dc in directions:
-                dfs(r + dr, c + dc)
+                dfs(r + dr, c + dc) 
 
         for r in range(ROWS):
             for c in range(COLS):
-                if grid[r][c] == "1":
+                if grid[r][c] == "1":   
                     dfs(r, c)
                     islands += 1
 
