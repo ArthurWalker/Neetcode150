@@ -8,21 +8,7 @@ class Solution:
             adj[u].append(v)
             adj[v].append(u)
 
-        # connected_node = {}
-        # for edge in edges:
-        #     if edge[0] not in connected_node:
-        #         connected_node[edge[0]] = [edge[1]]
-        #     else:
-        #         connected_node[edge[0]].append(edge[1])
-        #     if edge[1] not in connected_node:
-        #         connected_node[edge[1]] = [edge[0]]
-        #     else:
-        #         connected_node[edge[1]].append(edge[0])
-        
-        # print(connected_node)
-
-        # if len(connected_node) == 0:
-        #     return n
+ 
 
         # Use either DFS or BFS to travel through each node to determine graph
         def dfs(node):
